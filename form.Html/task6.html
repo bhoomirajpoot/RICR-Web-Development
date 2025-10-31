@@ -1,0 +1,63 @@
+
+  <h2>Task 6: Doctor Appointment Form (HTML + CSS)</h2>
+  <div class="task6-container">
+    <div class="task6-left">
+    
+      <img src="doctor.jpg" alt="Doctor" style="max-width:100%; height:auto; display:block;" />
+    </div>
+
+    <div class="task6-right">
+      <div class="task6-title">Doctor Appointment Form</div>
+      <form action="#" method="post">
+        <div>
+          <label for="app_date">Appointment Date:</label>
+          <input type="date" id="app_date" name="app_date" class="small" />
+        </div>
+
+        <div>
+          <label for="app_time">Appointment Time:</label>
+          <input type="text" id="app_time" name="app_time" placeholder="HH:MM" class="small" />
+        </div>
+
+        <div>
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" />
+        </div>
+
+        <div>
+          <label>Gender:</label>
+          <input type="radio" id="m" name="gender6" value="Male" /> <label for="m">Male</label>
+          <input type="radio" id="f" name="gender6" value="Female" /> <label for="f">Female</label>
+        </div>
+
+        <div>
+          <label for="phone">Phone:</label>
+          <input type="text" id="phone" name="phone" />
+        </div>
+
+        <div>
+          <label for="address">Address:</label>
+          <input type="text" id="address" name="address" />
+        </div>
+
+        <div>
+          <label for="query">Your Query:</label><br />
+          <textarea id="query" name="query"></textarea>
+        </div>
+
+        <div>
+          <label>Appointment Type:</label><br />
+          <input type="checkbox" id="check1" name="atype" value="Consultation" /> <label for="check1">Consultation</label><br />
+          <input type="checkbox" id="check2" name="atype" value="Follow-up" /> <label for="check2">Follow-up</label><br />
+          <input type="checkbox" id="check3" name="atype" value="Health Checkup" /> <label for="check3">Health Checkup</label>
+        </div>
+
+        <div style="margin-top:10px;">
+          <input type="submit" value="Send" />
+        </div>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>

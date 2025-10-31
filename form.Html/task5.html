@@ -1,0 +1,158 @@
+
+  <h2></h2>
+  <form action="#" method="post" enctype="multipart/form-data">
+    <table border="1" cellpadding="5" cellspacing="0">
+      <caption style="caption-side:top; font-weight:bold;">APPLICATION FORM</caption>
+
+      <!-- Personal Details row -->
+      <tr>
+        <td colspan="2">Applicant's Full name</td>
+        <td><input type="text" name="applicant_name" /></td>
+        <td>Care Of</td>
+        <td><input type="text" name="care_of" /></td>
+      </tr>
+
+      <tr>
+        <td>Father's Name</td>
+        <td><input type="text" name="father" /></td>
+        <td>Mother's Name</td>
+        <td><input type="text" name="mother" /></td>
+        <td>Gender
+          <input type="radio" name="g1" value="Male" />Male
+          <input type="radio" name="g1" value="Female" />Female
+        </td>
+      </tr>
+
+      <tr>
+        <td>Marital Status</td>
+        <td>
+          <select name="marital">
+            <option>Select</option>
+            <option>Single</option>
+            <option>Married</option>
+          </select>
+        </td>
+        <td>Date of Birth</td>
+        <td><input type="date" name="dob2" /></td>
+        <td>Category
+          <select name="category2">
+            <option>Select</option>
+            <option>Gen</option>
+            <option>OBC</option>
+            <option>SC/ST</option>
+          </select>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Handicapped</td>
+        <td>
+          <input type="radio" name="hand2" value="Yes" />Yes
+          <input type="radio" name="hand2" value="No" />No
+        </td>
+        <td>Religion</td>
+        <td><input type="text" name="religion" /></td>
+        <td>Nationality</td>
+        <td><input type="text" name="nationality" /></td>
+      </tr>
+
+      
+      <tr>
+        <td colspan="6" style="background:#f5f5f5; font-weight:bold;">Contact Details</td>
+      </tr>
+
+      <tr>
+        <td>Mobile Number</td>
+        <td><input type="text" name="mobile2" /></td>
+        <td>Email ID</td>
+        <td><input type="email" name="email2" /></td>
+        <td>City</td>
+        <td><input type="text" name="city2" /></td>
+      </tr>
+
+      <tr>
+        <td>Address Line 1</td>
+        <td colspan="2"><input type="text" name="addr1" style="width:98%" /></td>
+        <td>Address Line 2</td>
+        <td colspan="2"><input type="text" name="addr2" style="width:98%" /></td>
+      </tr>
+
+      <!-- Qualification Table (simple multiple rows) -->
+      <tr>
+        <td colspan="6" style="background:#f5f5f5; font-weight:bold;">Qualification Details</td>
+      </tr>
+      <tr>
+        <td>Sr. No.</td>
+        <td>Qualification</td>
+        <td>Board/University</td>
+        <td>Passing Year</td>
+        <td>Max Marks</td>
+        <td>Marks Obtained</td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td><input type="text" name="q1" /></td>
+        <td><input type="text" name="board1" /></td>
+        <td><input type="text" name="year1" /></td>
+        <td><input type="text" name="max1" /></td>
+        <td><input type="text" name="obt1" /></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td><input type="text" name="q2" /></td>
+        <td><input type="text" name="board2" /></td>
+        <td><input type="text" name="year2" /></td>
+        <td><input type="text" name="max2" /></td>
+        <td><input type="text" name="obt2" /></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td><input type="text" name="q3" /></td>
+        <td><input type="text" name="board3" /></td>
+        <td><input type="text" name="year3" /></td>
+        <td><input type="text" name="max3" /></td>
+        <td><input type="text" name="obt3" /></td>
+      </tr>
+
+      <!-- Language Knowledge -->
+      <tr>
+        <td colspan="6" style="background:#f5f5f5; font-weight:bold;">Language Knowledge</td>
+      </tr>
+      <tr>
+        <td>Language</td>
+        <td>Read</td>
+        <td>Write</td>
+        <td>Speak</td>
+        <td colspan="2"></td>
+      </tr>
+      <tr>
+        <td>English</td>
+        <td><input type="checkbox" name="eng_read" /></td>
+        <td><input type="checkbox" name="eng_write" /></td>
+        <td><input type="checkbox" name="eng_speak" /></td>
+        <td colspan="2"></td>
+      </tr>
+      <tr>
+        <td>Hindi</td>
+        <td><input type="checkbox" name="hin_read" /></td>
+        <td><input type="checkbox" name="hin_write" /></td>
+        <td><input type="checkbox" name="hin_speak" /></td>
+        <td colspan="2"></td>
+      </tr>
+
+      <!-- Uploads & Submit -->
+      <tr>
+        <td>Aadhar Card Number</td>
+        <td><input type="text" name="aadhaar" /></td>
+        <td>PAN Card Number</td>
+        <td><input type="text" name="pan" /></td>
+        <td>Upload Photo</td>
+        <td><input type="file" name="photo3" /></td>
+      </tr>
+      <tr>
+        <td>Upload Signature</td>
+        <td><input type="file" name="sign3" /></td>
+        <td colspan="4" style="text-align:center;"><input type="submit" value="Submit" /></td>
+      </tr>
+    </table>
+  </form>

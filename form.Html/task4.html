@@ -1,0 +1,85 @@
+ <h2></h2>
+  <form action="#" method="post" enctype="multipart/form-data">
+    <table border="1" cellpadding="6" cellspacing="0">
+      <caption style="caption-side:top; font-weight:bold;">Registration Form</caption>
+      <tr>
+        <td>Student Name</td>
+        <td><input type="text" name="first_name" placeholder="First Name" /></td>
+        <td><input type="text" name="middle_name" placeholder="Middle Name" /></td>
+        <td><input type="text" name="last_name" placeholder="Last Name" /></td>
+      </tr>
+      <tr>
+        <td>Father's Name</td>
+        <td colspan="3"><input type="text" name="father_name" style="width:98%" placeholder="Enter your Father's Name" /></td>
+      </tr>
+      <tr>
+        <td>Mother's Name</td>
+        <td colspan="3"><input type="text" name="mother_name" style="width:98%" placeholder="Enter your Mother's Name" /></td>
+      </tr>
+      <tr>
+        <td>Date of Birth</td>
+        <td><input type="date" name="dob" /></td>
+        <td>Gender</td>
+        <td>
+          <input type="radio" id="g_m" name="gender" value="Male" /><label for="g_m">Male</label>
+          <input type="radio" id="g_f" name="gender" value="Female" /><label for="g_f">Female</label>
+        </td>
+      </tr>
+      <tr>
+        <td>Category</td>
+        <td>
+          <select name="category">
+            <option>Select</option>
+            <option>Gen</option>
+            <option>OBC</option>
+            <option>SC/ST</option>
+          </select>
+        </td>
+        <td>Handicapped</td>
+        <td>
+          <input type="radio" name="handicapped" value="Yes" />Yes
+          <input type="radio" name="handicapped" value="No" />No
+        </td>
+      </tr>
+      <tr>
+        <td>Ex-Serviceman</td>
+        <td>
+          <input type="radio" name="exserv" value="Yes" />Yes
+          <input type="radio" name="exserv" value="No" />No
+        </td>
+        <td>EWS</td>
+        <td>
+          <input type="radio" name="ews" value="Yes" />Yes
+          <input type="radio" name="ews" value="No" />No
+        </td>
+      </tr>
+      <tr>
+        <td>Email ID</td>
+        <td><input type="email" name="email" /></td>
+        <td>Mobile No.</td>
+        <td><input type="text" name="mobile" /></td>
+      </tr>
+      <tr>
+        <td>State</td>
+        <td>
+          <select name="state">
+            <option>Select any One</option>
+            <option>Madhya Pradesh</option>
+            <option>Maharashtra</option>
+            <option>Other</option>
+          </select>
+        </td>
+        <td>City</td>
+        <td><input type="text" name="city" /></td>
+      </tr>
+      <tr>
+        <td>Upload Photo</td>
+        <td><input type="file" name="photo" /></td>
+        <td>Upload Signature</td>
+        <td><input type="file" name="signature" /></td>
+      </tr>
+      <tr>
+        <td colspan="4" style="text-align:center;"><input type="submit" value="Submit" /></td>
+      </tr>
+    </table>
+  </form>
