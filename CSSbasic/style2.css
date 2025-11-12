@@ -1,0 +1,83 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #3578e5;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Container for both forms */
+.form-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px; /* space between registration and login form */
+  flex-wrap: wrap; /* so that on small screens they stack */
+}
+
+/* Registration box */
+.register-container, .login-container {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  width: 320px;
+}
+
+/* Common heading */
+.register-container h2,
+.login-container h2 {
+  text-align: left;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Common input style */
+.input-box {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.input-box input {
+  width: 100%;
+  padding: 10px 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+/* Buttons */
+.btn {
+  width: 100%;
+  background-color: #3578e5;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #245dc9;
+}
+
+/* Text links and extras */
+.login, .signup {
+  text-align: center;
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+.login a, .signup a {
+  text-decoration: none;
+  color: #3578e5;
+}
+
+.terms, .remember {
+  font-size: 13px;
+  margin-bottom: 15px;
+}
