@@ -1,0 +1,20 @@
+#content {
+  height: 90vh;
+}
+
+#image {
+  max-width: 1000px;
+  max-height: 700px;
+  display: none;
+}
+
+#workspace {
+  position: relative;
+}
+
+#workspace label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

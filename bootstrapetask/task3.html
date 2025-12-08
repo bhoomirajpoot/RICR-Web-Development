@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Bhoomi - Portfolio (Bootstrap)</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome for small icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    /* Small custom styles to match original layout (keeps Bootstrap as main) */
+    :root {
+      --primary: #3578e5;
+      --muted: #868687;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background-color: #ffffff;
+      color: #111;
+    }
+
+    /* Navbar spacing similar to original */
+    .brand-title {
+      font-weight: 700;
+      letter-spacing: .2px;
+    }
+
+    .hero-image {
+      border-radius: 20px;
+      max-width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+    .client-logo {
+      height: 60px;
+      object-fit: contain;
+      filter: grayscale(100%);
+      opacity: .95;
+    }
+
+    .service-icon {
+      height: 90px;
+      width: 90px;
+      object-fit: contain;
+    }
+
+    .project-img {
+      height: 200px;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    .card-btn {
+      background: #000;
+      color: #fff;
+      border-radius: 8px;
+    }
+
+    .resume-badge img {
+      height: 70px;
+      object-fit: contain;
+    }
+
+    .testimonial-img {
+      height: 40px;
+      width: 40px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .contact-panel {
+      border-radius: 10px;
+    }
+
+    /* Keep hero spacing */
+    .hero-section {
+      padding-top: 48px;
+      padding-bottom: 48px;
+    }
+
+    /* Responsive tweaks */
+    @media (min-width: 992px) {
+      #front-row {
+        align-items: center;
+      }
+
+      .hero-text {
+        padding-right: 30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand brand-title" href="#">Material Taliwind</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-center">
+          <li class="nav-item me-3"><span class="nav-link"><i class="fa-solid fa-file-lines me-2"></i>Page</span></li>
+          <li class="nav-item me-3"><span class="nav-link"><i class="fa-solid fa-user me-2"></i>Account</span></li>
+          <li class="nav-item me-3"><span class="nav-link"><i class="fa-solid fa-folder-open me-2"></i>Docs</span></li>
+        </ul>
+
+        <div class="d-flex ms-3">
+          <button class="btn btn-outline-dark me-2">SIGN IN</button>
+          <button class="btn btn-dark">BLOCKS</button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero-section bg-light">
+    <div class="container">
+      <div class="row g-4" id="front-row">
+        <div class="col-lg-6 hero-text">
+          <h1 class="display-5 fw-bold">Welcome to my Web Development Portfolio!</h1>
+          <p class="text-muted fs-5">
+            I'm <strong>Bhoomi Rajpoot</strong>, a passionate web developer based in INDIA.
+            Here, you'll get a glimpse of my journey in the world of web development,
+            where creativity meets functionality.
+          </p>
+
+          <form class="row g-2 align-items-center">
+            <div class="col-auto">
+              <label for="mail" class="visually-hidden">Email</label>
+              <input id="mail" type="email" class="form-control" placeholder="Enter your email">
+            </div>
+            <div class="col-auto">
+              <button type="button" class="btn btn-dark">REQUIRE OFFER</button>
+            </div>
+            <div class="col-12 mt-2">
+              <small class="text-muted">Read my <u>Terms and Conditions</u></small>
+            </div>
+          </form>
+        </div>
+
+        <div class="col-lg-6 text-center">
+          <!-- keep original image path -->
+          <img src="new/photo.jpg" alt="frontphoto" class="hero-image">
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- CLIENTS + SKILLS -->
+  <section class="py-5">
+    <div class="container">
+
+      <h3 class="text-center mb-4">My awesome clients</h3>
+
+      <div class="d-flex flex-wrap justify-content-center align-items-center gap-4 mb-5" id="logos">
+        <img src="new/coinbase.jpg" alt="coinbase" class="client-logo">
+        <img src="new/spotifyy.jpg" alt="spotify" class="client-logo">
+        <img src="new/pinterestt.jpg" alt="pinterest" class="client-logo">
+        <img src="new/googlee.jpg" alt="google" class="client-logo">
+        <img src="new/amazonee.jpg" alt="amazon" class="client-logo">
+        <img src="new/netflixx.jpg" alt="netflix" class="client-logo">
+      </div>
+
+      <div class="text-center mb-5" id="skills">
+        <h6 class="text-uppercase text-muted">My Skills</h6>
+        <h2 class="fw-bold">What I Do</h2>
+        <p class="text-muted w-75 mx-auto">I'm not just a developer; I'm a digital dreamweaver.
+          Crafting immersive online experiences is not just a job but my calling. Discover below how I can help you.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SERVICES / THIRD SECTION -->
+  <section class="py-5 bg-white">
+    <div class="container">
+      <div class="row g-4 justify-content-center">
+        
+        <div class="col-md-6 col-lg-4">
+          <div class="text-center h-100 p-4">
+            <img src="new/icon1.jpg" alt="Frontend" class="service-icon mb-3">
+            <h5 class="fw-bold">Frontend Web Development</h5>
+            <p class="text-muted">Creating beautiful and functional web experiences is my forte. I design and build
+              websites that captivate users.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="text-center h-150 p-4">
+            <img src="new/icon2.jpg" alt="Mobile" class="service-icon mb-6">
+            <h5 class="fw-bold">Mobile App Development</h5>
+            <p class="text-muted">I create responsive and intuitive mobile apps for iOS & Android — from concept to
+              deployment.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="text-center h-100 p-4">
+            <img src="new/icon3.jpg" alt="Stack" class="service-icon mb-3">
+            <h5 class="fw-bold">Technology Stack</h5>
+            <p class="text-muted">Experienced with HTML5, CSS3, JavaScript and frameworks like React and React Native.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="text-center h-100 p-4">
+            <img src="new/icon4.jpg" alt="Optimization" class="service-icon mb-3">
+            <h5 class="fw-bold">Web Optimization</h5>
+            <p class="text-muted">I optimize websites for speed and SEO to provide a fast, responsive experience.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="text-center h-100 p-4">
+            <img src="new/icon5.jpg" alt="Design" class="service-icon mb-3">
+            <h5 class="fw-bold">User-Centric Design</h5>
+            <p class="text-muted">I create user interfaces that are functional and aesthetically pleasing for a seamless
+              user journey.</p>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4">
+          <div class="text-center h-100 p-4">
+            <img src="new/icon6.jpg" alt="QA" class="service-icon mb-3">
+            <h5 class="fw-bold">Testing & QA</h5>
+            <p class="text-muted">Rigorous testing and debugging to ensure a secure, bug-free product.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="py-5 bg-light">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2 class="fw-bold">My Projects</h2>
+        <p class="text-muted w-75 mx-auto">Whether you have a mobile app idea that needs to come to life or a website
+          that requires a facelift, I'm here to help.</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- We'll create 8 project cards similar to original -->
+        <!-- Project card template -->
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100 shadow-sm">
+            <img src="new/icon9.jpg" class="project-img" alt="Project 1">
+            <div class="card-body">
+              <h5 class="card-title">Mobile App Development</h5>
+              <p class="card-text text-muted">Mobile app designed to help users discover and explore local restaurants
+                and cuisines.</p>
+              <div class="d-flex justify-content-end">
+                <button class="btn card-btn">SEE DETAILS</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Copy similar cards (use provided images from your folder) -->
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100 shadow-sm">
+            <img src="new/icon8.jpg" class="project-img" alt="Project 2">
+            <div class="card-body">
+              <h5 class="card-title">Landing Page Development</h5>
+              <p class="card-text text-muted">Promotional landing page for a fitness website Summer Campaign. Form
+                development included.</p>
+              <div class="d-flex justify-content-end">
+                <button class="btn card-btn">SEE DETAILS</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- third -->
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100 shadow-sm">
+            <img src="new/icon7.jpg" class="project-img" alt="Project 3">
+            <div class="card-body">
+              <h5 class="card-title">Mobile App Development</h5>
+              <p class="card-text text-muted">Mobile app designed to help users discover and explore local restaurants
+                and cuisines.</p>
+              <div class="d-flex justify-content-end">
+                <button class="btn card-btn">SEE DETAILS</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- fourth -->
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100 shadow-sm">
+            <img src="new/icon10.jpg" class="project-img" alt="Project 4">
+            <div class="card-body">
+              <h5 class="card-title">E-commerce Development</h5>
+              <p class="card-text text-muted">Ecommerce website offering access to the latest gadgets and accessories.
+              </p>
+              <div class="d-flex justify-content-end">
+                <button class="btn card-btn">SEE DETAILS</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- repeat 4 more to match original count -->
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100 shadow-sm">
+            <img src="new/icon9.jpg" class="project-img" alt="Project 5">
+            <div class="card-body">
+              <h5 class="card-title">Mobile App Development</h5>
+              <p class="card-text text-muted">Discover and explore local restaurants and cuisines.</p>
+              <div class="d-flex justify-content-end">
+                <button class="btn card-btn">SEE DETAILS</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100 shadow-sm">
+            <img src="new/icon8.jpg" class="project-img" alt="Project 6">
+            <div class="card-body">
+              <h5 class="card-title">Landing Page Development</h5>
+              <p class="card-text text-muted">Promotional landing page with form integration.</p>
+              <div class="d-flex justify-content-end">
+                <button class="btn card-btn">SEE DETAILS</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100 shadow-sm">
+            <img src="new/icon7.jpg" class="project-img" alt="Project 7">
+            <div class="card-body">
+              <h5 class="card-title">Mobile App Development</h5>
+              <p class="card-text text-muted">User discovery and local restaurant guide app.</p>
+              <div class="d-flex justify-content-end">
+                <button class="btn card-btn">SEE DETAILS</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="card h-100 shadow-sm">
+            <img src="new/icon10.jpg" class="project-img" alt="Project 8">
+            <div class="card-body">
+              <h5 class="card-title">E-commerce Development</h5>
+              <p class="card-text text-muted">Online store for gadgets and accessories.</p>
+              <div class="d-flex justify-content-end">
+                <button class="btn card-btn">SEE DETAILS</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- RESUME / BADGES -->
+  <section class="py-5">
+    <div class="container d-flex flex-column flex-lg-row align-items-center justify-content-between gap-4">
+      <div class="flex-grow-1">
+        <h2 class="fw-bold">My Resume</h2>
+        <p class="text-muted">Highly skilled and creative Web Developer with 5+ years of experience in crafting visually
+          stunning and functionally robust websites and web applications.</p>
+        <button class="btn btn-outline-dark">VIEW MORE →</button>
+      </div>
+
+      <div class="d-flex gap-4 align-items-center">
+        <div class="text-center resume-badge">
+          <img src="new/n1.jpg" alt="Bachelor">
+          <div class="mt-2 text-muted">Bachelor of Science in Computer Science</div>
+        </div>
+
+        <div class="text-center resume-badge">
+          <img src="new/n2.jpg" alt="Certified">
+          <div class="mt-2 text-muted">Certified Web Developer</div>
+        </div>
+
+        <div class="text-center resume-badge">
+          <img src="new/n3.jpg" alt="Certification">
+          <div class="mt-2 text-muted">Frontend Framework Proficiency Certification</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="py-5 bg-white">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2>What Clients Say</h2>
+        <p class="text-muted">Discover what clients have to say about their experiences working with me. My client's
+          satisfaction is my greatest achievement!</p>
+      </div>
+
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <h3 class="display-6">Mobile App <br>Development</h3>
+          <p class="text-muted">I had the pleasure of working with Lily on a critical web development project, and I can
+            confidently say that their expertise and professionalism exceeded my expectations.</p>
+          <h5 class="mt-3">Michael - Technical Manager</h5>
+          <small class="text-muted">Marketing @ APPLE INC.</small>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="d-flex gap-3 align-items-center flex-wrap">
+            <img src="new/a1.jpg" alt="avatar1" class="testimonial-img">
+            <img src="new/a2.jpg" alt="avatar2" class="testimonial-img">
+            <img src="new/a3.jpg" alt="avatar3" class="testimonial-img">
+            <div class="ms-3">
+              <img src="new/a3.jpg" alt="avatar-large" class="img-fluid rounded" style="max-height:300px;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- POPULAR CLIENTS & CONTACT CTA -->
+  <section class="py-5 bg-light">
+    <div class="container text-center">
+      <h6 class="text-muted">POPULAR CLIENTS</h6>
+      <h2 class="fw-bold">Trusted by over 10,000+ clients</h2>
+
+      <div class="d-flex flex-wrap justify-content-center align-items-center gap-4 mt-4">
+        <img src="new/coinbase.jpg" alt="coinbase" class="client-logo">
+        <img src="new/spotifyyyyyyyyyyy.jpg" alt="spotify" class="client-logo">
+        <img src="new/pinterestt.jpg" alt="pinterest" class="client-logo">
+        <img src="new/googlee.jpg" alt="google" class="client-logo">
+        <img src="new/amazonee.jpg" alt="amazon" class="client-logo">
+        <img src="new/netflixx.jpg" alt="netflix" class="client-logo">
+      </div>
+
+      <div class="mt-5">
+        <h3>Contact Us</h3>
+        <p class="text-muted">Ready to get started? Feel free to reach out through the contact form, and let's embark on
+          a journey of innovation and success.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT / FORM (REG) -->
+  <section id="reg" class="py-5">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-11">
+          <div class="d-flex flex-column flex-lg-row gap-4 bg-light p-4 rounded-3">
+            <!-- Left info (dark box in original) -->
+            <div class="bg-dark text-white p-4 rounded-3 flex-shrink-0" style="min-width:320px;">
+              <h2>Contact Information</h2>
+              <p class="text-muted">Fill up the form and our Team will get back to you within 24 hours.</p>
+            </div>
+
+            <!-- Form -->
+            <div class="flex-grow-1 p-2">
+              <form>
+                <div class="row g-3">
+                  <div class="col-md-6">
+                    <label class="form-label">First Name</label>
+                    <input type="text" class="form-control" placeholder="eg. Bhoomi" required>
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label">Last Name</label>
+                    <input type="text" class="form-control" placeholder="eg. Rajpoot" required>
+                  </div>
+
+                  <div class="col-12">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-control" placeholder="eg. bhoomi@mail.com" required>
+                  </div>
+
+                  <div class="col-12">
+                    <label class="form-label">What are you interested in?</label>
+                    <div class="d-flex gap-3">
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="interest" id="i1" checked>
+                        <label class="form-check-label" for="i1">Design</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="interest" id="i2">
+                        <label class="form-check-label" for="i2">Development</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="interest" id="i3">
+                        <label class="form-check-label" for="i3">Support</label>
+                      </div>
+                      <div class="form-check">
+                        <input class="form-check-input" type="radio" name="interest" id="i4">
+                        <label class="form-check-label" for="i4">Other</label>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-12">
+                    <label class="form-label">Your Message</label>
+                    <textarea class="form-control" rows="4" placeholder="Write your message..."></textarea>
+                  </div>
+
+                  <div class="col-12 text-end">
+                    <button type="submit" class="btn btn-dark">SEND MESSAGE</button>
+                  </div>
+                </div>
+              </form>
+            </div> <!-- form end -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOTSTRAP JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

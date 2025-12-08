@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Page</title>
+     <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f5f7fa;
+        }
+
+        .container {
+            display: flex;
+            padding: 40px;
+            gap: 40px;
+        }
+
+        .left-box {
+            background: #e8f6ff;
+            padding: 40px;
+            border-radius: 12px;
+            width: 55%;
+        }
+
+        .left-box h2 {
+            margin-bottom: 10px;
+            font-size: 32px;
+        }
+
+        .left-box p {
+            margin-bottom: 30px;
+            color: #555;
+            font-size: 15px;
+        }
+
+        .input-box {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .input-box input,
+        .input-box textarea {
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            outline: none;
+            font-size: 16px;
+        }
+
+        .input-box textarea {
+            height: 130px;
+            resize: none;
+        }
+
+        .btn {
+            padding: 14px 30px;
+            background: #001f3f;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .right-box {
+            width: 45%;
+        }
+
+        .right-box h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .info {
+            margin: 20px 0;
+        }
+
+        .info h3 {
+            margin-bottom: 5px;
+        }
+
+        .info p {
+            color: #555;
+            margin: 0;
+        }
+
+        .request-btn {
+            padding: 12px 22px;
+            border-radius: 30px;
+            background: white;
+            border: 1px solid #ccc;
+            cursor: pointer;
+        }
+    </style>
+
+</head>
+<body>
+
+    <div class="container">
+
+      
+        <div class="left-box">
+            <h2>Get in Touch</h2>
+            <p>Have questions or need assistance? Fill out the form below.</p>
+
+            <form id="contactForm">
+                <div class="input-box">
+                    <input type="text" id="name" placeholder="Your Name">
+                </div>
+
+                <div class="input-box">
+                    <input type="email" id="email" placeholder="Email">
+                </div>
+
+                <div class="input-box">
+                    <input type="text" id="number" placeholder="Enter number">
+                </div>
+
+                <div class="input-box">
+                    <textarea id="message" placeholder="Write a message..."></textarea>
+                </div>
+
+                <button class="btn" type="submit">Send Message</button>
+            </form>
+        </div>
+
+        <div class="right-box">
+            <h2>Visit Our Campus</h2>
+            <p>Experience the learning environment at RICR. Our doors are open for you.</p>
+
+            <div class="info">
+                <h3>Location</h3>
+                <p>Minal Mall, 4th Floor, Minal Residency, JK Road, Bhopal Pincode - 462023</p>
+            </div>
+
+            <div class="info">
+                <h3>Contact</h3>
+                <p>+91 8889991736</p>
+            </div>
+
+            <div class="info">
+                <h3>Email</h3>
+                <p>contact@ricr.in</p>
+            </div>
+
+            <div class="info">
+                <h3>Hours of operation</h3>
+                <p>10 AM to 9 PM</p>
+            </div>
+
+            <button class="request-btn">Request a Callback</button>
+        </div>
+
+    </div>
+
+
+   
+    <script>
+        const contactForm = document.getElementById("contactForm");
+        const nameInput = document.getElementById("name");
+        const emailInput = document.getElementById("email");
+        const numberInput = document.getElementById("number");
+        const messageInput = document.getElementById("message");
+
+        contactForm.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            if (nameInput.value.trim() === "") {
+                alert("Please enter your name");
+                return;
+            }
+
+            if (!validateEmail(emailInput.value)) {
+                alert("Please enter a valid email");
+                return;
+            }
+
+            if (numberInput.value.trim().length < 10) {
+                alert("Please enter a valid mobile number");
+                return;
+            }
+
+            if (messageInput.value.trim() === "") {
+                alert("Please write a message");
+                return;
+            }
+
+            alert("Your message has been sent successfully!");
+            contactForm.reset();
+        });
+
+        function validateEmail(email) {
+            const regex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+            return regex.test(email);
+        }
+    </script>
+
+ <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+</body>
+</html>
