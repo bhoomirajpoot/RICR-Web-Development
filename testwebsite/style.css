@@ -1,0 +1,46 @@
+body{
+flex-wrap: wrap;
+justify-content: center;
+}
+.course-card {
+width: 250px;
+padding: 20px;
+border: 1px solid #ddd;
+border-radius: 10px;
+transition: 0.3s;
+box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+.course-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+.course-card a {
+display: inline-block;
+margin-top: 10px;
+text-decoration: none;
+color: #007bff;
+font-weight: 600;
+}
+.course-card a:hover {
+color: #005fcc;
+}
+
+
+.contact form {
+width: 300px;
+margin: auto;
+display: flex;
+flex-direction: column;
+gap: 10px;
+}
+button {
+padding: 10px;
+cursor: pointer;
+border: none;
+background: #007bff;
+color: #fff;
+border-radius: 5px;
+}
+button:hover {
+background: #005fcc;
+}
