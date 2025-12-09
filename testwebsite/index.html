@@ -1,52 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Online Course Landing Site</title>
-<link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Online Course Landing Site</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
-<nav class="navbar">
-<ul>
-<li><a href="#home">Home</a></li>
-<li><a href="#courses">Courses</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-</nav>
+  <nav class="navbar">
+    <h2 class="logo">CodeLearn</h2>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#courses">Courses</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
 
-<section id="home" class="hero">
-<h1>Learn Coding with Us</h1>
-<p>Boost your skills with our beginner‑friendly courses.</p>
-<a href="#courses" class="btn">Get Started</a>
-</section>
+  <section id="home" class="hero">
+    <h1>Learn Coding with Us</h1>
+    <p>Upgrade your skills with our high-quality online courses.</p>
+    <a href="#courses" class="btn">Get Started</a>
+  </section>
 
 
-<section id="courses" class="courses">
-<h2>Our Courses</h2>
-<div class="course-container" id="courseContainer"></div>
-</section>
+  <section id="courses" class="courses-section">
+    <h2>Our Courses</h2>
+    <div class="course-container" id="courseList">
+   
+    </div>
+  </section>
 
+  <section id="about" class="about-section">
+    <h2>About Us</h2>
+    <p>We provide the best coding courses designed by industry experts.</p>
+  </section>
 
-<section id="about" class="about">
-<h2>About Us</h2>
-<p>We provide high‑quality coding courses designed for students.</p>
-</section>
+  <section id="contact" class="contact-section">
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+      <input type="text" id="cname" placeholder="Your Name" required />
+      <input type="email" id="cemail" placeholder="Your Email" required />
+      <textarea id="cmessage" placeholder="Your Message" minlength="10" required></textarea>
+      <button type="submit" class="btn">Submit</button>
+    </form>
+  </section>
 
-
-<section id="contact" class="contact">
-<h2>Contact Us</h2>
-<form id="contactForm">
-<input type="text" id="cname" placeholder="Your Name" required />
-<input type="email" id="cemail" placeholder="Your Email" required />
-<textarea id="cmsg" placeholder="Your Message" required></textarea>
-<button type="submit">Submit</button>
-</form>
-</section>
-
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
