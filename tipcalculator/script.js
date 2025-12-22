@@ -1,49 +1,24 @@
-function addTask() {
-    const taskInput = document.getElementById("taskInput");
-    const taskText = taskInput.value.trim();
+function calculateTip() {
+    let bill = parseFloat(document.getElementById("billAmount").value);
+    let service = parseFloat(document.getElementById("serviceQuality").value);
+    let people = parseInt(document.getElementById("people").value);
 
-    if (taskText === "") {
-        alert("Please enter a task");
+    if (bill <= 0 || isNaN(bill)) {
+        document.getElementById("result").innerHTML = "Enter valid bill amount!";
         return;
     }
 
-    const li = document.createElement("li");
+    if (people <= 0 || isNaN(people)) {
+        document.getElementById("result").innerHTML = "Enter number of people!";
+        return;
+    }
 
-    const span = document.createElement("span");
-    span.innerText = taskText;
-    span.className = "task-text";
+    let tip = bill * service;
+    let totalBill = bill + tip;
+    let perPerson = totalBill / people;
 
-    const editBtn = document.createElement("button");
-    editBtn.innerText = "Edit";
-    editBtn.className = "edit-btn";
-
-    const deleteBtn = document.createElement("button");
-    deleteBtn.innerText = "Delete";
-    deleteBtn.className = "delete-btn";
-
-    editBtn.addEventListener("click", function () {
-        if (editBtn.innerText === "Edit") {
-            const input = document.createElement("input");
-            input.type = "text";
-            input.value = span.innerText;
-            li.replaceChild(input, span);
-            editBtn.innerText = "Save";
-        } else {
-            const input = li.querySelector("input");
-            span.innerText = input.value;
-            li.replaceChild(span, input);
-            editBtn.innerText = "Edit";
-        }
-    });
-
-    deleteBtn.addEventListener("click", function () {
-        li.remove();
-    });
-
-    li.appendChild(span);
-    li.appendChild(editBtn);
-    li.appendChild(deleteBtn);
-
-    document.getElementById("taskList").appendChild(li);
-    taskInput.value = "";
+    document.getElementById("result").innerHTML =
+        `Total Tip: ₹${tip.toFixed(2)}<br>
+         Total Bill: ₹${totalBill.toFixed(2)}<br>
+         Each Person Pays: <b>₹${perPerson.toFixed(2)}</b>`;
 }

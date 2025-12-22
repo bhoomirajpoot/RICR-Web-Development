@@ -2,20 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>To-Do List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="todo-container">
-        <h2>To-Do List</h2>
+    <div class="container">
+        <h1>Tip Calculator</h1>
 
-        <div class="input-area">
-            <input type="text" id="taskInput" placeholder="Enter a new task">
-            <button onclick="addTask()">Submit</button>
-        </div>
+        <label>Bill Amount (₹)</label>
+        <input type="number" id="billAmount" placeholder="Enter bill amount" min="0" step="0.01">
 
-        <ul id="taskList"></ul>
+        <label>How was the Service?</label>
+        <select id="serviceQuality">
+            <option value="0.25">25% - Top Notch</option>
+            <option value="0.20">20% - Excellent</option>
+            <option value="0.15">15% - Good</option>
+            <option value="0.10">10% - Bad</option>
+            <option value="0.05">5% - Worst</option>
+        </select>
+
+        <label>Total Number of People</label>
+        <input type="number" id="people" placeholder="Number of people" min="1">
+
+        <button onclick="calculateTip()">Calculate</button>
+
+        <div id="result"></div>
     </div>
 
     <script src="script.js"></script>
