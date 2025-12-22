@@ -1,0 +1,25 @@
+body {
+  background: #e9f0ff;
+}
+
+.card {
+  border-radius: 20px;
+  background: #fff;
+}
+
+#calcBtn:hover {
+  opacity: 0.9;
+}
+
+#resultCard {
+  background: #f8fcff;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid #dce9ff;
+}
+
+.list-group-item {
+  border-radius: 8px !important;
+  margin-bottom: 6px;
+  border: 1px dashed #bcd2ff;
+}
