@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Kart</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="logo">Shopping Kart</div>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#products">Products</a>
+      <a href="#checkout">Checkout</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+  <section id="home" class="hero">
+    <h1>Welcome to Shopping Kart</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti atque unde, sint suscipit quia eius quisquam
+      sit est, repudiandae vel at illum ab in? Animi deserunt vero excepturi earum <ipsam class="lo">Lorem ipsum dolor
+        sit amet, consectetur adipisicing elit. Error cupiditate blanditiis aut, corrupti molestias, eius consectetur
+        quaerat nulla sequi eos ab pariatur iste doloremque obcaecati laudantium fugit quibusdam, quia neque.
+      </ipsam>
+    </p>
+    <br>
+    <br>
+    <a href="#products" class="btn">Start Shopping</a>
+  </section>
+
+  <section id="products">
+    <h2>Our Products</h2>
+    <div class="product-grid">
+
+      <div class="product-card">
+        <img src="https://tse4.mm.bing.net/th/id/OIP.D5thzWKHZTEZSRjWyzLgOwHaEK?pid=Api&P=0" alt="">
+        <h3>Smartphone X1</h3>
+        <p class="brand">Brand: BrandA</p>
+        <p class="price">₹20,000</p>
+        <p>Latest smartphone with awesome features.</p>
+        <button class="btn" onclick="selectProduct('Smartphone X1')">Buy Now</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://tse3.mm.bing.net/th/id/OIP.Wc42-4ujKJJAv5PZUOfbuwHaE7?pid=Api&P=0" alt="">
+        <h3>Laptop Pro</h3>
+        <p class="brand">Brand: BrandB</p>
+        <p class="price">₹50,000</p>
+        <p>Powerful laptop for work and gaming.</p>
+        <button class="btn" onclick="selectProduct('Laptop Pro')">Buy Now</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://i.pinimg.com/736x/20/cc/f7/20ccf73437ab5d2e13742ed9bb564bb7.jpg" alt="">
+        <h3>Wireless Headphones</h3>
+        <p class="brand">Brand: BrandC</p>
+        <p class="price">₹5,000</p>
+        <p>Comfortable and high-quality sound.</p>
+        <button class="btn" onclick="selectProduct('Wireless Headphones')">Buy Now</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://pngimg.com/uploads/tablet/tablet_PNG8587.png" alt="">
+        <h3>Tablet Z10</h3>
+        <p class="brand">Brand: BrandD</p>
+        <p class="price">₹15,000</p>
+        <p>Lightweight tablet for daily use.</p>
+        <button class="btn" onclick="selectProduct('Tablet Z10')">Buy Now</button>
+      </div>
+
+      <div class="product-card">
+        <img src="http://www.pngmart.com/files/13/Smartwatch-PNG-Image.png" alt="">
+        <h3>Smartwatch S3</h3>
+        <p class="brand">Brand: BrandE</p>
+        <p class="price">₹8,000</p>
+        <p>Track fitness & notifications easily.</p>
+        <button class="btn" onclick="selectProduct('Smartwatch S3')">Buy Now</button>
+      </div>
+
+
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/71geVdy6-OS._AC_SL1500_.jpg" alt="">
+        <h3>Gaming Keyboard K5</h3>
+        <p class="brand">Brand: BrandF</p>
+        <p class="price">₹2,500</p>
+        <p>RGB mechanical keyboard for pro gamers.</p>
+        <button class="btn" onclick="selectProduct('Gaming Keyboard K5')">Buy Now</button>
+      </div>
+
+
+      <div class="product-card">
+        <img src="https://m.media-amazon.com/images/I/61-PblYntsL._SL1500_.jpg" alt="">
+        <h3>Bluetooth Speaker B2</h3>
+        <p class="brand">Brand: BrandG</p>
+        <p class="price">₹1,800</p>
+        <p>Powerful bass with 10-hour battery life.</p>
+        <button class="btn" onclick="selectProduct('Bluetooth Speaker B2')">Buy Now</button>
+      </div>
+
+
+      <div class="product-card">
+        <img src="https://tse2.mm.bing.net/th/id/OIP.v2f4Lu9bDInNJ3pEjY5mVwHaHa?pid=Api&P=0&h=220" alt="">
+        <h3>4K Action Camera</h3>
+        <p class="brand">Brand: BrandH</p>
+        <p class="price">₹6,500</p>
+        <p>Record your adventures in ultra HD.</p>
+        <button class="btn" onclick="selectProduct('4K Action Camera')">Buy Now</button>
+      </div>
+
+      <div class="product-card">
+        <img src="https://tse1.mm.bing.net/th/id/OIP.DS0ua0Aw7RyfRsDnQyTSJAHaD3?pid=Api&P=0&h=220" alt="">
+        <h3>Portable Power Bank 20,000mAh</h3>
+        <p class="brand">Brand: BrandI</p>
+        <p class="price">₹1,299</p>
+        <p>Fast charging & slim body.</p>
+        <button class="btn" onclick="selectProduct('Power Bank 20,000mAh')">Buy Now</button>
+      </div>
+
+
+      <div class="product-card">
+        <img src="https://tse2.mm.bing.net/th/id/OIP.L5DoCiYrNmvdExWWJuB58gHaD4?pid=Api&P=0&h=220" alt="">
+        <h3>DSLR Camera A90</h3>
+        <p class="brand">Brand: BrandJ</p>
+        <p class="price">₹45,000</p>
+        <p>Perfect for photography lovers.</p>
+        <button class="btn" onclick="selectProduct('DSLR Camera A90')">Buy Now</button>
+      </div>
+
+    </div>
+  </section>
+
+
+  <section id="checkout">
+    <h2>Checkout</h2>
+    <form id="checkoutForm">
+      <input type="text" id="name" placeholder="Full Name" required>
+      <input type="text" id="address" placeholder="Address" required>
+      <input type="tel" id="phone" placeholder="Phone Number" required>
+      <input type="email" id="email" placeholder="Email" required>
+      <input type="text" id="productName" placeholder="Selected Product" readonly>
+      <button type="submit" class="btn">Place Order</button>
+    </form>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+      <input type="text" id="cname" placeholder="Your Name" required>
+      <input type="email" id="cemail" placeholder="Your Email" required>
+      <textarea id="cmessage" placeholder="Your Message (min 10 chars)" rows="4" required></textarea>
+      <button type="submit" class="btn">Submit</button>
+    </form>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
