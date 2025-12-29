@@ -4,6 +4,7 @@ const Contect = () => {
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [isLoding, setIsLoding] = useState(false);
 
   const handleClearform = () => {
     setFullName("");
@@ -11,24 +12,34 @@ const Contect = () => {
     setMessage("");
   };
 
-const Valid=()=>{
-  let isValid=true;
-  if(!/^[A-Za-z]+$/.test(fullName)){
-    isValid=false;
+  const Valid = () => {
+    let isValid = true;
+    if (!/^[A-Za-z]+$/.test(fullName)) {
+      isValid = false;
+    }
   }
-}
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if(!Valid()) return;
+    setIsLoding(true);
 
-    const data={
-      fullName,
-      email,
-      message
-    };
-    console.log(data);
 
+    try {
+      const response = await fetch(
+        "https://official-joke-api.appspot.com/jokes/Random"
+      );
+      const data = {
+        fullName,
+        email,
+        message
+      };
+      console.log(data);
+    }
+    catch (error) {
+      console.log(error.message);
+    } finally {
+      setIsLoding(false);
+    }
     handleClearform();
   }
 
@@ -56,8 +67,12 @@ const Valid=()=>{
                 className="text-pink-500"></textarea>
             </div>
             <div>
-              <button type="reset">clear form</button>
-              <button type="submit">Submit</button>
+              <button type="reset" className="btn btn-danger">clear form</button>
+              <button type="submit" className="btn btn-dark">
+                {
+                  isLoding ? "Loding" : "Submit"
+                }
+              </button>
             </div>
           </form>
         </div>
