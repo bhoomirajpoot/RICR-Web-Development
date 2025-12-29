@@ -1,86 +1,134 @@
 import React, { useState } from "react";
 
-const Contect = () => {
-  const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [isLoding, setIsLoding] = useState(false);
+const Contact = () => {
+  const [contactData, setContactData] = useState({
+    fullName: "",
+    email: "",
+    phone: "",
+    city: "",
+    subject: "",
+    message: "",
+  });
 
-  const handleClearform = () => {
-    setFullName("");
-    setEmail("");
-    setMessage("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleChange = (e) => {
+    const { name, value } = e.traget;
+    setContactData((previousData) => ({ ...previousData, [name]: value }));
   };
 
-  const Valid = () => {
-    let isValid = true;
-    if (!/^[A-Za-z]+$/.test(fullName)) {
-      isValid = false;
-    }
-  }
+  const handleClearForm = () => { };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsLoding(true);
-
-
+    setIsLoading(true);
     try {
       const response = await fetch(
-        "https://official-joke-api.appspot.com/jokes/Random"
+        "https://official-joke-api.appspot.com/jokes/random"
       );
-      const data = {
-        fullName,
-        email,
-        message
-      };
-      console.log(data);
-    }
-    catch (error) {
+    } catch (error) {
       console.log(error.message);
     } finally {
-      setIsLoding(false);
+      setIsLoading(false);
     }
-    handleClearform();
-  }
+    handleClearForm();
+  };
 
   return (
     <>
       <div className="text-center">
-        <h1>Contect us</h1>
+        <h1>Contact Us</h1>
         <div className="container">
-
-          <form onReset={handleClearform} onSubmit={handleSubmit}>
+          <form onReset={handleClearForm} onSubmit={handleSubmit}>
             <div>
-              <label htmlFor="fullName">FullName</label>
-              <input type="text" name="fullName" id="fullName" value={fullName} onChange={(event) => setFullName(event.target.value)}
-                placeholder="Enter your name"
-                className="text-pink-700" />
+              <label htmlFor="fullName">Full Name</label>
+              <input
+                type="text"
+                name="fullName"
+                id="fullName"
+                value={contactData.fullName}
+                onChange={handleChange}
+                placeholder="Enter your Name"
+                className="text-primary"
+              />
             </div>
+
             <div>
               <label htmlFor="email">Email</label>
-              <input type="text" name="email" id="email" value={email} onChange={(event) => setEmail(event.target.value)} />
+              <input
+                type="email"
+                name="email"
+                id="email"
+                value={contactData.email}
+                onChange={handleChange}
+                placeholder="Enter your Email"
+                className="text-primary"
+              />
             </div>
+
+            <div>
+              <label htmlFor="phone">Phone</label>
+              <input
+                type="number"
+                name="phone"
+                id="phone"
+                value={contactData.phone}
+                onChange={handleChange}
+                placeholder="Enter your phone"
+                className="text-primary"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="city">City</label>
+              <input
+                type="text"
+                name="city"
+                id="city"
+                value={contactData.city}
+                onChange={handleChange}
+                placeholder="Enter your city"
+                className="text-primary"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="subject">Subject</label>
+              <input
+                type="text"
+                name="subject"
+                id="subject"
+                value={contactData.subject}
+                onChange={handleChange}
+                placeholder="Enter your subject"
+                className="text-primary"
+              />
+            </div>
+
             <div>
               <label htmlFor="message">Message</label>
-              <textarea name="message" id="message" value={message} onChange={(event) => setMessage(event.target.value)}
-                placeholder="enter your message"
-                className="text-pink-500"></textarea>
+              <textarea
+                name="message"
+                id="message"
+                value={contactData.message}
+                onChange={handleChange}
+                placeholder="Enter your Message"
+                className="text-primary"
+              ></textarea>
             </div>
             <div>
-              <button type="reset" className="btn btn-danger">clear form</button>
-              <button type="submit" className="btn btn-dark">
-                {
-                  isLoding ? "Loding" : "Submit"
-                }
+              <button type="reset" className="btn btn-danger">
+                Clear Form
+              </button>
+              <button type="submit" className="btn btn-success">
+                {isLoading ? "Loading" : "Submit"}
               </button>
             </div>
           </form>
         </div>
-
-
       </div>
     </>
   );
 };
 
-export default Contect;
+export default Contact;
