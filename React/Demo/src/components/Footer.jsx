@@ -1,18 +1,15 @@
 import React from "react";
-import App from "./Header";
 
 const Footer = () => {
   return (
     <>
-      <div className="bg-primary text-light d-flex justify-content-evenly">
-        this is my first React App
-        <span>All rights Reserved</span>
+      <div className="d-flex justify-content-evenly bg-secondary text-light">
+        <span>All rights Reserverd</span>
         <span>Copyright @2025</span>
-        <span>Made with ❤️ by bhumi</span>
+        <span>Made with ❤️🎀 by Bhumi</span>
       </div>
     </>
-
   );
-
 };
+
 export default Footer;

@@ -1,9 +1,9 @@
 import React from "react";
 
 const Product = () => {
-  return(
+  return (
     <>
-     <div>Product</div>
+      <div>Product</div>
     </>
   );
 };
