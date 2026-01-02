@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import CountryData from "../assets/CountryData.json";
 import toast from "react-hot-toast";
 import axios from "axios";
+import { AiOutlineSwap } from "react-icons/ai";
 
 const Currency = () => {
   const [from, setFrom] = useState("");
@@ -21,17 +22,17 @@ const Currency = () => {
           .toLowerCase()}.json`
       );
 
-      
-      setToAmt(fromAmt*res.data[from.split(" ")[0].toLowerCase()][to.split(" ")[0].toLowerCase()]);
-      
-    } catch (error) {}
+
+      setToAmt(fromAmt * res.data[from.split(" ")[0].toLowerCase()][to.split(" ")[0].toLowerCase()]);
+
+    } catch (error) { }
   };
 
   return (
     <>
       <div className="bg-amber-50 h-screen p-5">
         <div className="w-3xl bg-white rounded shadow border p-3 mx-auto space-y-5">
-          <div className="grid grid-cols-2 gap-5">
+          <div className=" relative grid grid-cols-2 gap-5">
             <div className="flex gap-3 border rounded px-3">
               {from && (
                 <img
@@ -81,6 +82,11 @@ const Currency = () => {
                 ))}
               </select>
             </div>
+            <div className="absolute left-1/2 -translate-x-[50%] top-3">
+              <button className="text-2xl hover:scale">
+                < AiOutlineSwap /> 
+              </button>
+            </div>
           </div>
           <div className="flex gap-3 items-center">
             <label htmlFor="fromAmt">Amount</label>
@@ -104,7 +110,7 @@ const Currency = () => {
           <div className="border" />
 
           <div className="flex gap-3 items-center">
-            <label htmlFor="toAmt">Converted Amount : {toAmt?toAmt:"XXXXXX"}</label>
+            <label htmlFor="toAmt">Converted Amount : {toAmt ? toAmt : "XXXXXX"}</label>
           </div>
         </div>
       </div>
