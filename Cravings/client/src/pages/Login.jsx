@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import api from "../config/Api";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate()
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -54,6 +57,7 @@ const Login = () => {
       toast.success(res.data.message);
 
       handleClearForm();
+      navigate("/user-dashboard")
     } catch (error) {
       toast.error(error.response?.data?.message || "Login failed");
     } finally {
@@ -69,7 +73,7 @@ const Login = () => {
           <h1 className="text-4xl font-bold text-gray-900 mb-2">
             Login
           </h1>
-        
+
         </div>
 
         {/* Form */}

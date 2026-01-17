@@ -1,3 +1,4 @@
+
 import Contact from "../models/contactModel.js";
 
 export const NewContact = async (req, res, next) => {
@@ -5,25 +6,25 @@ export const NewContact = async (req, res, next) => {
     const { fullName, email, mobile, message } = req.body;
 
     if (!fullName || !email || !mobile || !message) {
-      const error = new error("All Field Required")
-      error.statusCode = 400;
-      return next(error);
+      return res.status(400).json({
+        success: false,
+        message: "All fields are required",
+      });
     }
 
     const newContact = await Contact.create({
-      
-      mobileNumber,
+      fullName,
+      email,
+      mobile,
       message,
     });
 
-    console.log(newContact);
-    res.status(201)
-    .json({
-      message: "Thanks for conatacting us, we will get back to you in 24 hours"
+    res.status(201).json({
+      success: true,
+      message: "Thanks for contacting us, we will get back to you in 24 hours",
+      data: newContact,
     });
   } catch (error) {
     next(error);
   }
-}
-
-export default Controllers;
+};
