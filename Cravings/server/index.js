@@ -8,8 +8,9 @@ import AuthRouter from "./src/routers/authRouter.js";
 import PublicRouter from './src/routers/publicRouter.js'
 
 const app = express();
+mongodb://localhost:27017/
 
-app.use(cors({ origin: "http://localhost:5173" }));
+app.use(cors({origin:"http://localhost:5173"}));
 app.use(express.json());
 app.use(morgan("dev"));
 
