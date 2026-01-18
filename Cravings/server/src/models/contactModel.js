@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const contactSchema = new mongoose.Schema(
+const contactSchema = mongoose.Schema(
   {
     fullName: {
       type: String,
@@ -10,7 +10,7 @@ const contactSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    mobile: {
+    mobileNumber: {
       type: String,
       required: true,
     },

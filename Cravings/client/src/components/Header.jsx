@@ -3,7 +3,7 @@ import tranparentLogo from "../assets/transparentLogo.png";
 import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
-  const navigate =useNavigate();
+  const navigate = useNavigate();
 
   return (
     <>
@@ -36,10 +36,16 @@ const Header = () => {
           </Link>
         </div>
         <div className="flex gap-4">
-          <button onClick={()=> navigate("/login")} className="bg-(--color-secondary) py-2 px-4 font-bold hover:bg-(--color-secondary-hover) hover:text-white rounded ">
+          <button
+            onClick={() => navigate("/login")}
+            className="bg-(--color-secondary) py-2 px-4 font-bold hover:bg-(--color-secondary-hover) hover:text-white rounded "
+          >
             Login
           </button>
-          <button onClick={()=> navigate("/register")} className="bg-(--color-secondary) py-2 px-4 font-bold hover:bg-(--color-secondary-hover) hover:text-white rounded ">
+          <button
+            onClick={() => navigate("/register")}
+            className="bg-(--color-secondary) py-2 px-4 font-bold hover:bg-(--color-secondary-hover) hover:text-white rounded "
+          >
             Register
           </button>
         </div>
