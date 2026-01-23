@@ -14,7 +14,7 @@ const App = () => {
     <>
       <BrowserRouter>
         <Toaster />
-        <Header />
+        <Header /> {/* Global header */}
 
         <Routes>
           <Route path="/" element={<Home />} />
@@ -22,7 +22,7 @@ const App = () => {
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path='/user-dashboard' element={<UserDashboard/>}/>
+          <Route path="/user-dashboard" element={<UserDashboard />} />
         </Routes>
       </BrowserRouter>
     </>
