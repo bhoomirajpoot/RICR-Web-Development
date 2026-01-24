@@ -18,6 +18,7 @@ app.use(morgan("dev"));
 
 app.use("/auth", AuthRouter);
 app.use("/public", PublicRouter);
+app.use("/user", UserRouter);
 
 app.get("/", (req, res) => {
   console.log("Server is Working");
