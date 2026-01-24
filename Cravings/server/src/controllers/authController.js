@@ -6,7 +6,7 @@ export const UserRegister = async (req, res, next) => {
   try {
     console.log(req.body);
     //accept data from Frontend
-    const { fullName, email, mobileNumber, password } = req.body;
+    const { fullName, email, mobileNumber, password , role} = req.body;
 
     //verify that all data exist
     if (!fullName || !email || !mobileNumber || !password) {
@@ -15,7 +15,7 @@ export const UserRegister = async (req, res, next) => {
       return next(error);
     }
 
-    console.log({ fullName, email, mobileNumber, password });
+    console.log({ fullName, email, mobileNumber, password, role });
 
     //Check for duplaicate user before registration
     const existingUser = await User.findOne({ email });
@@ -39,6 +39,7 @@ export const UserRegister = async (req, res, next) => {
       email,
       mobileNumber,
       password: hashPassword,
+      role,
     });
 
     // send response to Frontend
