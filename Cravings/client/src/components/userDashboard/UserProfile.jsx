@@ -12,7 +12,7 @@ const UserProfile = () => {
         <div className="flex justify-between items-center mb-6">
           <h2 className="text-2xl font-bold text-gray-800">My Profile</h2>
           <button
-            className="px-6 py-2 bg-amber-400 hover:bg-amber-500 text-gray-900 font-semibold rounded-lg transition duration-300 ease-in-out transform hover:scale-105 shadow-sm"
+            className="px-6 py-2 bg-pink-600 hover:bg-amber-500 text-gray-900 font-semibold rounded-lg transition duration-300 ease-in-out transform hover:scale-105 shadow-sm"
             onClick={() => setIsEditProfileModalOpen(true)}
           >
             Edit Profile

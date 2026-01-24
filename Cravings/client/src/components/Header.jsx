@@ -40,7 +40,7 @@ const Header = () => {
         <div className="flex gap-4">
           {isLogin ? (
             <div
-              className="text-red-500 cursor-pointer"
+              className="text-white cursor-pointer"
               onClick={() => navigate("/user-dashboard")}
             >
               {user.fullName}
