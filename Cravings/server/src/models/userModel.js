@@ -61,7 +61,6 @@ const userSchema = mongoose.Schema(
         default: "",
       },
     },
-
     geoLocation: {
       lat: {
         type: String,
@@ -74,9 +73,8 @@ const userSchema = mongoose.Schema(
         default: "N/A",
       },
     },
-
-    PaymentDetails: {
-      UPI: {
+    paymentDetails: {
+      upi: {
         type: String,
         required: true,
         default: "N/A",
@@ -92,28 +90,51 @@ const userSchema = mongoose.Schema(
         default: "N/A",
       },
     },
-
     restaurantName: {
       type: String,
-      required() {
-        return this.role === "manager";
-      },
-      default() { return this.role === "manager" ? "N/A" : null }
+      required: true,
+      default: "N/A",
     },
-
     cuisine: {
       type: String,
-      required() {
-        return this.role === "manager";
-      },
-      default() { return this.role === "manager" ? "N/A" : null }
-
+      required: true,
+      default: "N/A",
     },
-
-
+    documents: {
+      gst: {
+        type: String,
+        required: true,
+        default: "N/A",
+      },
+      fssai: {
+        type: String,
+        required: true,
+        default: "N/A",
+      },
+      rc: {
+        type: String,
+        required: true,
+        default: "N/A",
+      },
+      dl: {
+        type: String,
+        required: true,
+        default: "N/A",
+      },
+      uidai: {
+        type: String,
+        required: true,
+        default: "N/A",
+      },
+      pan: {
+        type: String,
+        required: true,
+        default: "N/A",
+      },
+    },
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 
-const User = mongoose.model("User", userSchema)
+const User = mongoose.model("User", userSchema);
 export default User;
