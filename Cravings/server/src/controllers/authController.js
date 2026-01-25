@@ -6,16 +6,16 @@ export const UserRegister = async (req, res, next) => {
   try {
     console.log(req.body);
     //accept data from Frontend
-    const { fullName, email, mobileNumber, password , role} = req.body;
+    const { fullName, email, mobileNumber, password, role } = req.body;
 
     //verify that all data exist
-    if (!fullName || !email || !mobileNumber || !password) {
+    if (!fullName || !email || !mobileNumber || !password || !role) {
       const error = new Error("All feilds required");
       error.statusCode = 400;
       return next(error);
     }
 
-    console.log({ fullName, email, mobileNumber, password, role });
+    console.log({ fullName, email, mobileNumber, password });
 
     //Check for duplaicate user before registration
     const existingUser = await User.findOne({ email });
@@ -92,9 +92,7 @@ export const UserLogin = async (req, res, next) => {
 
 export const UserLogout = async (req, res, next) => {
   try {
-    res.clearCookie("parleG");
-    res.status(200).json({ message: "Logout Successful" });
-
+    res.status(200).json({ message: "Logout Successfull" });
   } catch (error) {
     next(error);
   }
