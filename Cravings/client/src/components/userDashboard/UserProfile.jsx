@@ -33,11 +33,13 @@ const UserProfile = () => {
     const newPhotoURL = URL.createObjectURL(file);
     //console.log(newPhotoURL);
     setPreview(newPhotoURL);
-    setTimeout(() => {
+    // setTimeout(() => {
       setPhoto(file);
-      changePhoto();
-    }, 5000);
+    //   changePhoto();
+    // }, 5000);
   };
+
+  // useEffect(()=> ,[photo]);
 
   return (
     <>
