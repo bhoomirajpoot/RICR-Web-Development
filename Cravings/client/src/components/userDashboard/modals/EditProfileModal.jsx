@@ -3,7 +3,7 @@ import { useAuth } from "../../../context/AuthContext";
 import api from "../../../config/Api";
 
 const EditProfileModal = ({ onClose }) => {
-  const { user, setUser } = useAuth();
+  const { user, setUser, setIsLogin } = useAuth();
   const [formData, setFormData] = useState({
     fullName: user.fullName,
     email: user.email,
