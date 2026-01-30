@@ -1,5 +1,4 @@
-
-import cloudinary from "../config/Cloudinary.js";
+import cloudinary from "../config/cloudinary.js";
 import User from "../models/userModel.js";
 
 export const UserUpdate = async (req, res, next) => {
@@ -48,44 +47,44 @@ export const UserUpdate = async (req, res, next) => {
 };
 
 export const UserChangePhoto = async (req, res, next) => {
-  // try {
-  //   console.log("body: ", req.body);
-
-  //   console.log("file:", req.file);
-
-
-
-
   try {
+    // console.log("body: ", req.body);
     const currentUser = req.user;
     const dp = req.file;
 
+    //console.log("request file: ", req.file);
+
     if (!dp) {
-      const error = new error("profile picture required")
+      const error = new Error("Profile Picture required");
       error.statusCode = 400;
       return next(error);
     }
 
+    console.log("DP:", dp);
+
     if (currentUser.photo.publicID) {
-      await cloudinary.uploader.destroy(currentUser.photo.publicID)
+      await cloudinary.uploader.destroy(currentUser.photo.publicID);
     }
 
     const b64 = Buffer.from(dp.buffer).toString("base64");
-   // console.log(b64.slice(0.100));
-    const dataURL = "data: ${ dp.mimetype };base64,${b64}";
-    console.log("DataURL",dataURL.slice(0,100));
+    // console.log(b64.slice(0,100));
+    const dataURI = `data:${dp.mimetype};base64,${b64}`;
+    console.log("DataURI", dataURI.slice(0, 100));
 
-    const result=await cloudinary.uploader.upload(dataURL,{
-      folder:"Cravings/User",
-      width:500,
-      height:500,
-      crop:"fill",
-    })
+    const result = await cloudinary.uploader.upload(dataURI, {
+      folder: "Cravings/User",
+      width: 500,
+      height: 500,
+      crop: "fill",
+    });
 
-    // console.log("image uploaded sucessfully", result);
-    // currentUser.photo.url=result.sec
+    console.log("Image Uplaoded successfully: ", result);
+    currentUser.photo.url = result.secure_url;
+    currentUser.photo.publicID = result.public_id;
 
-    res.status(200).json({ message: "Photo Updated" });
+    await currentUser.save();
+
+    res.status(200).json({ message: "Photo Updated", data: currentUser });
   } catch (error) {
     next(error);
   }
