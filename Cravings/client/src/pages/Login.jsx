@@ -3,13 +3,15 @@ import toast from "react-hot-toast";
 import api from "../config/Api";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
+import ForgetPasswordModal from "../components/publicModal/ForgetPasswordModal";
 
 const Login = () => {
   const { setUser, setIsLogin, setRole } = useAuth();
 
   const navigate = useNavigate();
 
-const [isForgetPasswordModalOpen , setIsForgetPasswordModalOpen]=useState(false);
+  const [isForgetPasswordModelOpen, setIsForgetPasswordModelOpen] =
+    useState(false);
 
   const [formData, setFormData] = useState({
     email: "",
@@ -96,7 +98,7 @@ const [isForgetPasswordModalOpen , setIsForgetPasswordModalOpen]=useState(false)
               className="p-8"
             >
               {/* Personal Information */}
-              <div className="mb-10">
+              <div className="mb-5">
                 <div className="space-y-4">
                   <input
                     type="email"
@@ -113,14 +115,24 @@ const [isForgetPasswordModalOpen , setIsForgetPasswordModalOpen]=useState(false)
                     type="password"
                     name="password"
                     value={formData.password}
-                    placeholder="Create Password"
+                    placeholder="Password"
                     onChange={handleChange}
                     required
                     disabled={isLoading}
                     className="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500 transition disabled:cursor-not-allowed disabled:bg-gray-200"
                   />
                 </div>
-                <div className="w-full flex justify-items-end-safe">Forget Password?</div>
+                <div className="w-full flex justify-end">
+                  <button
+                    className="text-(--color-primary) hover:text-(--color-secondary) cursor-pointer"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      setIsForgetPasswordModelOpen(true);
+                    }}
+                  >
+                    Forget Password?
+                  </button>
+                </div>
               </div>
 
               {/* Submit Button */}
@@ -135,7 +147,7 @@ const [isForgetPasswordModalOpen , setIsForgetPasswordModalOpen]=useState(false)
                 <button
                   type="submit"
                   disabled={isLoading}
-                  className="flex-1 bg-linear-to-r from-pink-600 to-pink-700 text-white font-bold py-4 px-6 rounded-lg hover:from-pink-700 hover:to-pink-800 transition duration-300 transform hover:scale-105 shadow-lg disabled:scale-100 disabled:bg-gray-300  disabled:cursor-not-allowed"
+                  className="flex-1 bg-linear-to-r from-indigo-600 to-indigo-700 text-white font-bold py-4 px-6 rounded-lg hover:from-indigo-700 hover:to-indigo-800 transition duration-300 transform hover:scale-105 shadow-lg disabled:scale-100 disabled:bg-gray-300  disabled:cursor-not-allowed"
                 >
                   {isLoading ? "loading.." : "Login"}
                 </button>
@@ -149,6 +161,12 @@ const [isForgetPasswordModalOpen , setIsForgetPasswordModalOpen]=useState(false)
           </p>
         </div>
       </div>
+
+      {isForgetPasswordModelOpen && (
+        <ForgetPasswordModal
+          onClose={() => setIsForgetPasswordModelOpen(false)}
+        />
+      )}
     </>
   );
 };
