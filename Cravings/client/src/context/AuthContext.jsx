@@ -1,27 +1,36 @@
-import React, { useEffect, useState } from "react";
-import { useContext } from "react";
+import { createContext, useContext, useState } from "react";
 
-const AuthContext = React.createContext();
+const AuthContext = createContext();
 
-export const AuthProvider = (props) => {
-  const [user, setUser] = useState(
-    JSON.parse(sessionStorage.getItem("CravingUser")) || "",
-  );
-  const [isLogin, setIsLogin] = useState(!!user);
-  const [role, setRole] = useState(user?.role || "");
+export const AuthProvider = ({ children }) => {
+  const storedUser = JSON.parse(sessionStorage.getItem("CravingUser"));
 
-  useEffect(() => {
-    setIsLogin(!!user);
-    setRole(user?.role || "");
-  }, [user]);
+  const [user, setUser] = useState(storedUser);
+  const [role, setRole] = useState(storedUser?.role || "");
+  const [isLogin, setIsLogin] = useState(!!storedUser);
 
-  const value = { user, setUser, isLogin, setIsLogin, role, setRole };
+  const logout = () => {
+    setUser(null);
+    setRole("");
+    setIsLogin(false);
+    sessionStorage.clear();
+  };
 
   return (
-    <AuthContext.Provider value={value}>{props.children}</AuthContext.Provider>
+    <AuthContext.Provider
+      value={{
+        user,
+        setUser,
+        role,
+        setRole,
+        isLogin,
+        setIsLogin,
+        logout,
+      }}
+    >
+      {children}
+    </AuthContext.Provider>
   );
 };
 
-export const useAuth = () => {
-  return useContext(AuthContext);
-};
+export const useAuth = () => useContext(AuthContext);
