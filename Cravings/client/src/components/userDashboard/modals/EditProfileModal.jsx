@@ -171,6 +171,7 @@ const EditProfileModal = ({ onClose }) => {
               ⊗
             </button>
           </div>
+          
 
           {message.text && (
             <div
