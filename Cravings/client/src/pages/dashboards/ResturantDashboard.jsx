@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import RestaurantSideBar from "../../components/restaurantDashboard/RestaurantSideBar";
 import RestaurantOverview from "../../components/restaurantDashboard/RestaurantOverview";
 import RestaurantOrders from "../../components/restaurantDashboard/RestaurantOrders";
-import RestaurantMenu from "../../components/restaurantDashboard/RestaurantMenu";
+import RestaurantMenu from "../../components/restaurantDashboard/RestaurantHelpDesk";
 import RestaurantProfile from "../../components/restaurantDashboard/RestaurantProfile";
-import RestaurantHelpDesk from "../../components/restaurantDashboard/RestaurantHelpDesk";
+import RestaurantHelpDesk from "../../components/restaurantDashboard/RestaurantEarnings";
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
