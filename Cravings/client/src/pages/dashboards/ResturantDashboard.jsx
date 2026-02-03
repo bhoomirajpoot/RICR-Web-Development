@@ -9,7 +9,7 @@ import RestaurantHelpDesk from "../../components/restaurantDashboard/RestaurantH
 import { useAuth } from "../../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 
-const ResturantDashboard = () => {
+const RestaurantDashboard = () => {
   const { role, isLogin } = useAuth();
   const navigate = useNavigate();
   const [active, setActive] = useState("overview");
@@ -64,4 +64,4 @@ const ResturantDashboard = () => {
   );
 };
 
-export default ResturantDashboard;
+export default RestaurantDashboard;
