@@ -27,8 +27,8 @@ const RestaurantMenu = () => {
   };
 
   useEffect(() => {
-    if (!isAddItemModalOpen) fetchMenuItem();
-  }, [isAddItemModalOpen]);
+    if (!isAddItemModalOpen && !isEditItemModalOpen) fetchMenuItem();
+  }, [isAddItemModalOpen,isEditItemModalOpen]);
   return (
     <>
       <div className="bg-gray-50 rounded-lg p-6 h-full overflow-y-auto">
