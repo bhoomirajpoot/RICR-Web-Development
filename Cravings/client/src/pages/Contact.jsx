@@ -51,7 +51,6 @@ const Contact = () => {
             <h1 className="text-4xl font-bold text-gray-900 mb-2">
               Post your Query
             </h1>
-          
           </div>
 
           {/* Form Container */}
@@ -132,6 +131,19 @@ const Contact = () => {
           <p className="text-center text-gray-600 mt-8 text-sm">
             All fields marked are mandatory. We respect your privacy.
           </p>
+        </div>
+
+        <div>
+          <iframe
+            src={
+              "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3483.9331294936896!2d77.45477337509959!3d23.268962679001856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397c6967f58e0dbf%3A0x65d0724cf8368e2d!2sRICR%20-%20Raj%20Institute%20of%20Coding%20%26%20Robotics%20%7C%20Best%20Java%20Coding%20Classes%20In%20Bhopal!5e1!3m2!1sen!2sin!4v1770470878471!5m2!1sen!2sin"
+            }
+            width={"600"}
+            height={"450"}
+            allowFullScreen={""}
+            loading={"lazy"}
+            referrerPolicy={"no-referrer-when-downgrade"}
+          ></iframe>
         </div>
       </div>
     </>
