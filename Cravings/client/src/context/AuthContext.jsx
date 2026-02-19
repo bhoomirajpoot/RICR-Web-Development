@@ -1,35 +1,24 @@
-import { createContext, useContext, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useContext } from "react";
 
-const AuthContext = createContext();
+const AuthContext = React.createContext();
 
-export const AuthProvider = ({ children }) => {
-  const storedUser = JSON.parse(sessionStorage.getItem("CravingUser"));
+export const AuthProvider = (props) => {
+  const [user, setUser] = useState(
+    JSON.parse(sessionStorage.getItem("CravingUser")) || "",
+  );
+  const [isLogin, setIsLogin] = useState(!!user);
+  const [role, setRole] = useState(user?.role || "");
 
-  const [user, setUser] = useState(storedUser);
-  const [role, setRole] = useState(storedUser?.role || "");
-  const [isLogin, setIsLogin] = useState(!!storedUser);
+  useEffect(() => {
+    setIsLogin(!!user);
+    setRole(user?.role || "");
+  }, [user]);
 
-  const logout = () => {
-    setUser(null);
-    setRole("");
-    setIsLogin(false);
-    sessionStorage.clear();
-  };
+  const value = { user, setUser, isLogin, setIsLogin, role, setRole };
 
   return (
-    <AuthContext.Provider
-      value={{
-        user,
-        setUser,
-        role,
-        setRole,
-        isLogin,
-        setIsLogin,
-        logout,
-      }}
-    >
-      {children}
-    </AuthContext.Provider>
+    <AuthContext.Provider value={value}>{props.children}</AuthContext.Provider>
   );
 };
 
