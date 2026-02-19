@@ -59,11 +59,12 @@ const Header = () => {
           >
             Contact
           </Link>
+          
         </div>
         <div className="flex gap-4">
           {isLogin ? (
             <div
-              className="text-white cursor-pointer"
+              className="text-red-500 cursor-pointer"
               onClick={handleNavigate}
             >
               {user.fullName}
