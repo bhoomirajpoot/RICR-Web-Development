@@ -1,26 +1,35 @@
 import { useNavigate } from "react-router-dom";
+import Layout from "../components/Layout";
 
 function Home() {
   const navigate = useNavigate();
 
   return (
-    <div style={{ textAlign: "center", marginTop: "100px" }}>
-      <h1>Mobile Quiz WiFi</h1>
+    <Layout>
+      <h1 className="text-3xl font-bold text-white mb-6">
+        📱 Mobile Quiz WiFi
+      </h1>
 
-      <button
-        onClick={() => navigate("/join")}
-        style={{ margin: "10px", padding: "10px 20px" }}
-      >
-        Join Quiz
-      </button>
+      <p className="text-white/80 mb-8">
+        Play quiz with friends on same WiFi
+      </p>
 
-      <button
-        onClick={() => navigate("/host")}
-        style={{ margin: "10px", padding: "10px 20px" }}
-      >
-        Host Quiz
-      </button>
-    </div>
+      <div className="space-y-4">
+        <button
+          onClick={() => navigate("/join")}
+          className="w-full py-3 bg-white text-purple-700 font-semibold rounded-lg shadow hover:scale-105 transition"
+        >
+          Join Quiz
+        </button>
+
+        <button
+          onClick={() => navigate("/host")}
+          className="w-full py-3 bg-yellow-400 text-black font-semibold rounded-lg shadow hover:scale-105 transition"
+        >
+          Host Quiz
+        </button>
+      </div>
+    </Layout>
   );
 }
 
