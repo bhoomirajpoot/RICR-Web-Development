@@ -1,17 +1,19 @@
 import { useState } from "react";
 import Layout from "../components/Layout";
+import socket from "../socket";
 
 function Join() {
   const [name, setName] = useState("");
 
   const handleJoin = () => {
     if (!name) return;
+    socket.emit("join", name);
     alert("Joined as " + name);
   };
 
   return (
     <Layout>
-      <h2 className="text-2xl font-bold text-white mb-6">
+      <h2 className="text-2xl text-white font-bold mb-6 text-center">
         Join Quiz
       </h2>
 
