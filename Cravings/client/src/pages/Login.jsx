@@ -3,7 +3,7 @@ import toast from "react-hot-toast";
 import api from "../config/Api";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import ForgetPasswordModal from "../components/publicModals/ForgetPasswordModal";
+import ForgetPasswordModal from "../components/publicModal/ForgetPasswordModal";
 import Loading from "../components/Loading";
 
 const Login = () => {
