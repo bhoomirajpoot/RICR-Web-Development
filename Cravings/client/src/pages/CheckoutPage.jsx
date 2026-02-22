@@ -3,6 +3,13 @@ import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import { FaTrash, FaPlus, FaMinus } from "react-icons/fa";
+import api from "../config/Api";
+
+const PromoCode = {
+  NEW50: 50,
+  SAVE20: 20,
+  CRAVE10: 10,
+};
 
 const CheckoutPage = () => {
   const { user } = useAuth();
@@ -10,6 +17,9 @@ const CheckoutPage = () => {
   const [cart, setCart] = useState(JSON.parse(localStorage.getItem("cart")));
   const [paymentMethod, setPaymentMethod] = useState("credit-card");
   const [isProcessing, setIsProcessing] = useState(false);
+  const [promoCode, setPromoCode] = useState("");
+  const [appliedPromo, setAppliedPromo] = useState(false);
+  const [paymentStatus, setPaymentStatus] = useState("pending");
 
   // Tax and charges calculation
   const TAX_RATE = 0.05; // 5% tax
@@ -34,7 +44,7 @@ const CheckoutPage = () => {
 
       const newTotal = updatedItems.reduce(
         (sum, item) => sum + item.price * item.quantity,
-        0
+        0,
       );
 
       return { ...prev, cartItem: updatedItems, cartValue: newTotal };
@@ -65,6 +75,64 @@ const CheckoutPage = () => {
     return { subtotal, tax, total };
   };
 
+  const handlePromoCodeApply = () => {
+    const discountPercent = PromoCode[promoCode.toUpperCase()];
+    if (discountPercent) {
+      const { subtotal } = calculatePrices();
+      const discountAmount = (subtotal * discountPercent) / 100;
+      const newSubTotal = subtotal - discountAmount;
+
+      console.log("Applying promo code:", {
+        promoCode,
+        discountPercent,
+        discountAmount,
+        oldSubTotal: subtotal,
+        newSubTotal: newSubTotal,
+      });
+      setCart((prev) => ({
+        ...prev,
+        cartValue: newSubTotal,
+      }));
+      toast.success(
+        `Promo code applied! You saved ₹${discountAmount.toFixed(2)}`,
+      );
+      setAppliedPromo(true);
+    } else {
+      toast.error("Invalid promo code");
+    }
+  };
+
+  const GeneratePayload = () => {
+    const { subtotal, tax, total } = calculatePrices();
+    return {
+      restaurantId: cart.resturantID,
+      userId: user._id,
+      items: [...cart.cartItem],
+      orderValue: {
+        subtotal,
+        tax,
+        total,
+        promoCode,
+        deliveryFee: 50,
+        discountPercentage: PromoCode[promoCode.toUpperCase()],
+        paymentMethod,
+        paymentStatus,
+      },
+      status: "pending",
+      review: {},
+    };
+  };
+  
+  const handlePayment = async () => {
+    try {
+
+      //call Payment gateway API
+      setPaymentStatus("paid");
+    } catch (error) {
+      setPaymentStatus("failed");
+    }
+  };
+
   const handlePlaceOrder = async () => {
     if (!user || !cart) {
       toast.error("Session expired. Please login again.");
@@ -73,10 +141,15 @@ const CheckoutPage = () => {
     }
 
     setIsProcessing(true);
+
+    handlePayment();
+
+    const payload = GeneratePayload();
+    console.log(payload);
+
     try {
-      // Here you would integrate payment gateway (Razorpay, Stripe, etc.)
-      // For now, we'll just show a success message
-      toast.success("Order placed successfully!");
+      const res = await api.post("/user/placeorder", payload);
+      toast.success(res.data.message);
       localStorage.removeItem("cart");
       navigate("/user-dashboard", { state: { tab: "orders" } });
     } catch (error) {
@@ -207,7 +280,10 @@ const CheckoutPage = () => {
                         {/* Item Total */}
                         <div className="text-right mt-2">
                           <p className="text-sm text-gray-600">Subtotal</p>
-                          <p className="text-lg font-bold" style={{ color: "var(--color-secondary)" }}>
+                          <p
+                            className="text-lg font-bold"
+                            style={{ color: "var(--color-secondary)" }}
+                          >
                             ₹{(item.price * item.quantity).toFixed(2)}
                           </p>
                         </div>
@@ -232,7 +308,10 @@ const CheckoutPage = () => {
               </h2>
 
               <div className="bg-blue-50 border-l-4 border-blue-500 p-4 rounded">
-                <p className="font-bold text-lg" style={{ color: "var(--color-primary)" }}>
+                <p
+                  className="font-bold text-lg"
+                  style={{ color: "var(--color-primary)" }}
+                >
                   {user.fullName}
                 </p>
                 <p className="text-gray-700 mt-2">{user.address}</p>
@@ -243,7 +322,9 @@ const CheckoutPage = () => {
               </div>
 
               <button
-                onClick={() => navigate("/user-dashboard", { state: { tab: "profile" } })}
+                onClick={() =>
+                  navigate("/user-dashboard", { state: { tab: "profile" } })
+                }
                 className="mt-4 px-4 py-2 text-blue-600 hover:text-blue-800 font-semibold transition"
               >
                 ✎ Edit Address
@@ -273,11 +354,16 @@ const CheckoutPage = () => {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-gray-700">Delivery Charge</span>
-                  <span className="font-semibold">₹{DELIVERY_CHARGE.toFixed(2)}</span>
+                  <span className="font-semibold">
+                    ₹{DELIVERY_CHARGE.toFixed(2)}
+                  </span>
                 </div>
 
                 <div className="border-t pt-4 flex justify-between">
-                  <span className="text-lg font-bold" style={{ color: "var(--color-primary)" }}>
+                  <span
+                    className="text-lg font-bold"
+                    style={{ color: "var(--color-primary)" }}
+                  >
                     Total Amount
                   </span>
                   <span
@@ -289,9 +375,42 @@ const CheckoutPage = () => {
                 </div>
               </div>
 
+              {/* Promo Code Section */}
+              <div className="bg-white rounded-lg shadow-md p-6">
+                <h3
+                  className="font-bold mb-3"
+                  style={{ color: "var(--color-primary)" }}
+                >
+                  Promo Code
+                </h3>
+                <div className="flex gap-2">
+                  <input
+                    type="text"
+                    placeholder="Enter code"
+                    name="promo"
+                    value={promoCode}
+                    onChange={(e) => setPromoCode(e.target.value)}
+                    className="flex-1 border border-gray-300 rounded px-3 py-2 focus:outline-none disabled:bg-gray-100"
+                    style={{ borderColor: "var(--color-secondary)" }}
+                    disabled={appliedPromo}
+                  />
+                  <button
+                    style={{ backgroundColor: "var(--color-secondary)" }}
+                    className="text-white px-4 py-2 rounded hover:opacity-90 transition disabled:opacity-50"
+                    onClick={handlePromoCodeApply}
+                    disabled={appliedPromo}
+                  >
+                    Apply
+                  </button>
+                </div>
+              </div>
+
               {/* Payment Method Selection */}
-              <div className="mb-6 border-t pt-6">
-                <h3 className="font-bold mb-4" style={{ color: "var(--color-primary)" }}>
+              <div className="mb-6 border-t pt-6 mt-6">
+                <h3
+                  className="font-bold mb-4"
+                  style={{ color: "var(--color-primary)" }}
+                >
                   Payment Method
                 </h3>
 
@@ -302,7 +421,10 @@ const CheckoutPage = () => {
                     { id: "wallet", label: "👛 Digital Wallet" },
                     { id: "cod", label: "🏠 Cash on Delivery" },
                   ].map((method) => (
-                    <label key={method.id} className="flex items-center cursor-pointer">
+                    <label
+                      key={method.id}
+                      className="flex items-center cursor-pointer"
+                    >
                       <input
                         type="radio"
                         name="payment"
@@ -336,27 +458,6 @@ const CheckoutPage = () => {
               >
                 ← Continue Shopping
               </button>
-            </div>
-
-            {/* Promo Code Section */}
-            <div className="bg-white rounded-lg shadow-md p-6 mt-6">
-              <h3 className="font-bold mb-3" style={{ color: "var(--color-primary)" }}>
-                Promo Code
-              </h3>
-              <div className="flex gap-2">
-                <input
-                  type="text"
-                  placeholder="Enter code"
-                  className="flex-1 border border-gray-300 rounded px-3 py-2 focus:outline-none"
-                  style={{ borderColor: "var(--color-secondary)" }}
-                />
-                <button
-                  style={{ backgroundColor: "var(--color-secondary)" }}
-                  className="text-white px-4 py-2 rounded hover:opacity-90 transition"
-                >
-                  Apply
-                </button>
-              </div>
             </div>
           </div>
         </div>
