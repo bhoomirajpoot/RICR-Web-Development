@@ -1,0 +1,122 @@
+[
+  {
+    "question": "What is React?",
+    "options": ["Library", "Framework", "Language", "Database"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "category": "Frontend",
+    "isActive": true
+  },
+  {
+    "question": "What is MongoDB?",
+    "options": ["SQL Database", "NoSQL Database", "Programming Language", "Server"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "category": "Database",
+    "isActive": true
+  },
+  {
+    "question": "Which company developed React?",
+    "options": ["Google", "Facebook", "Microsoft", "Amazon"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "category": "Frontend",
+    "isActive": true
+  },
+  {
+    "question": "What does JWT stand for?",
+    "options": ["Java Web Token", "JSON Web Token", "JavaScript Web Token", "None"],
+    "correctAnswer": 1,
+    "difficulty": "medium",
+    "category": "Backend",
+    "isActive": true
+  },
+  {
+    "question": "Which hook is used for state in React?",
+    "options": ["useEffect", "useState", "useRef", "useMemo"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "category": "Frontend",
+    "isActive": true
+  },
+  {
+    "question": "What is Express.js?",
+    "options": ["Frontend Framework", "Node.js Framework", "Database", "Language"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "category": "Backend",
+    "isActive": true
+  },
+  {
+    "question": "Which command installs dependencies?",
+    "options": ["node install", "npm install", "npm start", "npm build"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "category": "General",
+    "isActive": true
+  },
+  {
+    "question": "Which method is used to fetch data in REST API?",
+    "options": ["GET", "PUSH", "RUN", "START"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "category": "Backend",
+    "isActive": true
+  },
+  {
+    "question": "Which database uses tables?",
+    "options": ["MongoDB", "MySQL", "Firebase", "Redis"],
+    "correctAnswer": 1,
+    "difficulty": "easy",
+    "category": "Database",
+    "isActive": true
+  },
+  {
+    "question": "Which keyword creates a constant in JavaScript?",
+    "options": ["let", "var", "const", "define"],
+    "correctAnswer": 2,
+    "difficulty": "easy",
+    "category": "Frontend",
+    "isActive": true
+  },
+  {
+    "question": "Which HTTP status code means Not Found?",
+    "options": ["200", "201", "404", "500"],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "category": "Backend",
+    "isActive": true
+  },
+  {
+    "question": "Which tool is used for version control?",
+    "options": ["Git", "Node", "NPM", "Express"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "category": "General",
+    "isActive": true
+  },
+  {
+    "question": "Which port does React dev server run on by default?",
+    "options": ["3000", "5000", "8080", "27017"],
+    "correctAnswer": 0,
+    "difficulty": "medium",
+    "category": "Frontend",
+    "isActive": true
+  },
+  {
+    "question": "Which operator is used for strict equality in JS?",
+    "options": ["==", "=", "===", "!="],
+    "correctAnswer": 2,
+    "difficulty": "medium",
+    "category": "Frontend",
+    "isActive": true
+  },
+  {
+    "question": "Which command starts a Node server?",
+    "options": ["node server.js", "npm build", "npm install", "git start"],
+    "correctAnswer": 0,
+    "difficulty": "easy",
+    "category": "Backend",
+    "isActive": true
+  }
+]

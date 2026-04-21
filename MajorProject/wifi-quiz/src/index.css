@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+.dark ::-webkit-scrollbar-thumb { background: #475569; }
+
+/* Smooth transitions for dark mode */
+html { transition: background-color 0.2s ease; }
+
+/* Font application */
+.font-display { font-family: 'Cabinet Grotesk', 'DM Sans', sans-serif; }
+.font-body { font-family: 'DM Sans', sans-serif; }
+.font-mono { font-family: 'JetBrains Mono', monospace; }
