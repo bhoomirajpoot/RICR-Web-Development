@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import { FaEye, FaEdit } from "react-icons/fa";
 import { FaToggleOff, FaToggleOn } from "react-icons/fa6";
 import { ImBlocked } from "react-icons/im";
-import ViewItemModal from "./modals/ViewItemmodal";
+import ViewItemModal from "./modals/ViewItemModal";
 import EditItemModal from "./modals/EditItemModal";
 
 const RestaurantMenu = () => {
